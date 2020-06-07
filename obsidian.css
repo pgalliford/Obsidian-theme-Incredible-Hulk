@@ -5,43 +5,51 @@
     --background-secondary-alt: #282A36;
     --text-normal: #bbc0c5;
     --text-faint: rgba(187, 192, 197, 0.4);
-    --text-title-h1: #c7c7c7;
-    --text-title-h2: #c7c7c7;
-    --text-title-h3: #c7c7c7;
-    --text-title-h4: #c7c7c7;
-    --text-title-h5: #c7c7c7;
+    --text-title-h1: var(--purple-pale);
+    --text-title-h2: var(--green-light);
+    --text-title-h3: var(--green-light);
+    --text-title-h4: var(--green-light);
+    --text-title-h5: var(--green-light);
     --text-link: #3fce4a;
     --text-a: #3fce4a;
     --text-a-hover: rgba(63, 206, 74, 0.6);
-    --text-mark: #FFFAA0;
+    --text-mark: rgba(0, 206, 0, 0.33);
     --pre-code: #282A36;
-    --text-highlight-bg: rgba(255, 255, 0, 0.2);
-    --interactive-accent: #92A1A1;
+    --text-highlight-bg: rgba(160, 251, 255, 0.12);
+    --interactive-accent: #ff7171;
     --interactive-before: #2ac7c7;
-    --background-modifier-border: #92a1a17a;
+    --background-modifier-border: rgba(146, 161, 161, 0.5);
     /* --blockquote-border: rgba(77, 60, 166, .6); */
-    --text-accent: #ff9640ba;
-    --interactive-accent-rgb: #fe8019;
-    --font-family-editor: Avenir;
-    --font-family-preview: Avenir;
+    --text-accent: var(--green-light);
+    --interactive-accent-rgb: var(--green-light);
+    --font-family-editor: courier, arial;
+    --font-family-preview: arial;
+
+    /* Hulk color palette */
+    --purple: #3c0a96;
+    --purple-light: #4632c8;
+    --purple-pale: #b7a0f5;
+    --green: #0a5519;
+    --green-light: #0a8c28;
+    --green-pale: #A4E7C3;
+    --brackets-color #0a5519;
 }
 
 
-#graph-view-canvas .links {
-    stroke: var(--interactive-accent-rgb) !important;
-}
 
 strong {
-    color: #b5c7c7;
+    color: var(--purple-pale);
     font-weight: 700;
 }
 
 em {
-    color: #b8cece;
+    /* color: var(--purple-pale); 
+    */
     font-style: italic;
-    font-family: Georgia;
-    font-size: 16px;
-    line-height: 1.25;
+}
+
+s {
+    color: var(--text-mark);
 }
 
 mark {
@@ -52,65 +60,83 @@ mark {
     padding-right: 2px;
 }
 
-/**********************/
-/* links and brackets */
-/**********************/
-
-/* link */
-a,
-.internal-link,
-.cm-hmd-internal-link,
-.cm-link,
-.cm-formatting-link {
-    color: var(--text-a) !important;
-    text-decoration: none !important;
-    font-family: Avenir !important;
+.markdown-preview-view hr {
+    background-color: var(--text-faint) !important;
 }
 
-a.tag {
-    color: #616d6d !important;
+/*Make folder title uppercase*/
+.nav-folder-title {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-/* link hover color */
-a:hover,
-.internal-link:hover {
-    color: var(--text-a-hover) !important;
-    text-decoration: none !important;
+/***************************************/
+/*              Brackets               */
+/***************************************/
+
+.cm-s-obsidian span.cm-formatting-link {
+    color: var(--text-faint) !important;
 }
 
-/* make external links italics to differentiate */
-a:not(.internal-link) {
-    font-style: italic;
-}
-
-/* blockquote */
-.cm-quote
+/***************************************/
+/*             Blockquote              */
+/***************************************/
 
 /* for editor */
-    {
+.cm-quote {
     color: var(--text-normal) !important;
 }
 
-blockquote
-
 /* for preview */
-    {
-    border-color: var(--blockquote-border) !important;
+.markdown-preview-view blockquote {
+    background-color: #1A1B24;
+    border: 0px solid;
+    border-color: var(--purple-pale) !important;
+    border-left-width: 1px !important;
+    border-radius: 0 8px 8px 0;
+    font-family: merriwether, georgia, serif;
+    font-size: 1.25em;
+    line-height: 1.5em;
+    margin: 0 10px;
 }
 
-/* icons at top of panes*/
-.file-view-actions a {
-    color: var(--text-muted) !important;
+
+/***************************************/
+/*               Checkbox              */
+/***************************************/
+
+.markdown-preview-view .task-list-item-checkbox:checked::before {
+    content: '✓';
+    position: absolute;
+    color: #3fce4a;
+    font-size: 1em;
+    line-height: 1.25em;
+    width: 1.2em;
+    text-align: center;
+    text-shadow: 0 0 0.5em var(--green);
 }
 
-.file-view-actions a:hover {
-    color: var(--text-a) !important;
+.markdown-preview-view .task-list-item-checkbox {
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    border: 1px solid var(--text-faint);
+    position: relative;
+    width: 1.4em;
+    height: 1.5em;
+    margin: 0;
+    box-shadow: 0 0 0.4em var(--purple-pale);
 }
 
-/* html tags in editor */
-.cm-tag {
-    color: var(--text-accent) !important;
+.markdown-preview-view .task-list-item-checkbox {
+    top: 2px;
 }
+
+
+
+/***************************************/
+/*                 Code                */
+/***************************************/
 
 /* code blocks in preview */
 pre code {
@@ -124,11 +150,10 @@ pre code {
 
 .markdown-preview-view pre {
     font-family: Monaco !important;
-
     padding: 0px !important;
 }
 
-/* in-line code for editor and preview and code block for editor*/
+/* in-line code for editor and preview + code block for editor*/
 code,
 .cm-inline-code {
     background-color: var(--pre-code) !important;
@@ -137,117 +162,26 @@ code,
     font-size: 0.85em !important;
 }
 
-/* code and code blocks for preview */
+/* code + code blocks for preview */
 .markdown-preview-view code {
+    color: var(--yellow);
+    font-family: monaco, 'Source Code Pro', monospace;
+    background-color: var(--pre-code) !important;
+    border-radius: 4px;
+    border-color: #ff79c6 !important;
+    padding: 2px 4px;
+    border: 0px solid;
     font-size: 13.5px;
+    position: relative;
+    bottom: 2px;
 }
 
-/****************/
-/* search panel */
-/****************/
 
-.search-result-file-matched-text {
-    color: var(--text-normal);
-    background-color: rgba(255, 121, 198, 0.5) !important;
-}
 
-/**********/
-/* tables */
-/**********/
-th {
-    font-weight: 800 !important;
-}
 
-thead {
-    border-bottom: 4px solid var(--background-modifier-border);
-}
-
-.table {
-    background-color: var(--background-secondary-alt);
-    border: 1px solid var(--background-modifier-border);
-    padding: 4px;
-    line-height: normal;
-    display: block;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-
-/* embedded images */
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* horizontal line in preview */
-.markdown-preview-view hr {
-    background-color: var(--text-normal);
-}
-
-/* checkboxes */
-.markdown-preview-view .task-list-item-checkbox {
-    top: 1px;
-}
-
-/*************/
-/* side dock */
-/*************/
-
-/* side dock text, like file names and backlink context */
-.side-dock-panels-container * {
-    font-size: 13px !important;
-}
-
-/* side dock titles at top */
-.side-dock-title {
-
-    font-size: 20px !important;
-    font-weight: 800 !important;
-}
-
-/* hover actions on side dock navigation */
-.side-dock-ribbon-tab:hover,
-.side-dock-ribbon-tab-inner:hover,
-.side-dock-ribbon-action:hover,
-.side-dock-ribbon-action.is-active:hover,
-.nav-action-button:hover,
-.side-dock-collapse-btn:hover {
-    color: var(--text-a);
-}
-
-/* condense line spacing on file explorer title list. also avoids character-level word breaks */
-.nav-file-title-content,
-.search-result-file-title,
-.search-result-file-match {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    line-height: normal !important;
-    word-break: keep-all;
-}
-
-/* clean up side bar empty state (e.g. unlinked mentions) */
-.search-empty-state {
-    width: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    line-height: normal;
-}
-
-/* font for everything outside of editor/preview panes */
-.app-container {
-    font-family: var(--font-family-preview);
-}
-
-.status-bar-item {
-    font-family: var(--font-family-preview);
-    font-size: 12px;
-}
-
-/******************/
-/* editor section */
-/******************/
+/**********************/
+/*  Headings - EDITOR */
+/**********************/
 
 /* normal text outside of headings and code */
 .cm-s-obsidian {
@@ -266,11 +200,11 @@ img {
     padding-right: 20% !important;
 }
 
-/* headings */
+/* Headings */
 .cm-header-1 {
     font-family: var(--font-family-editor);
     font-weight: 500;
-    font-size: 28px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--text-title-h1);
 }
@@ -278,7 +212,7 @@ img {
 .cm-header-2 {
     font-family: var(--font-family-editor);
     font-weight: 500;
-    font-size: 26px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--text-title-h2);
 }
@@ -286,7 +220,7 @@ img {
 .cm-header-3 {
     font-family: var(--font-family-editor);
     font-weight: 500;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--text-title-h3);
 }
@@ -294,7 +228,7 @@ img {
 .cm-header-4 {
     font-family: var(--font-family-editor);
     font-weight: 500;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--text-title-h4);
 }
@@ -302,7 +236,7 @@ img {
 .cm-header-5 {
     font-family: var(--font-family-editor);
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--text-title-h5);
 }
@@ -315,23 +249,9 @@ img {
     color: var(--text-title-h5);
 }
 
-.cm-s-obsidian pre.HyperMD-codeblock {
-    font-family: Monaco;
-    line-height: 1.3;
-    color: #bd93f9;
-    /* color: #ff79c6; */
-    font-size: 0.85em;
-}
-
-.cm-s-obsidian span.cm-formatting-highlight,
-.cm-s-obsidian span.cm-highlight {
-    background-color: rgba(160, 251, 255, 0.12);
-    color: var(--text-normal);
-}
-
-/******************/
-/* preview section */
-/******************/
+/***********************/
+/*  Headings - PREVIEW */
+/***********************/
 
 /* normal text outside of headings and code */
 .markdown-preview-view {
@@ -400,6 +320,232 @@ img {
     color: var(--text-title-h5);
 }
 
+/*************************************************/
+/* Side panel - File Explorer heading, Backlinks */
+/*************************************************/
+
+.file-view-actions a {
+    color: var(--text-muted) !important;
+}
+
+.file-view-actions a:hover {
+    color: var(--text-a) !important;
+}
+
+.theme-light,
+.file-view-actions a {
+    color: var(--purple) !important;
+}
+
+.theme-light,
+.file-view-actions a:hover {
+    color: var(--purple-light) !important;
+}
+
+/**********************/
+/* links and brackets */
+/**********************/
+
+/* link */
+
+.cm-hmd-internal-link,
+.cm-link,
+.cm-formatting-link {
+    color: var(--text-a) !important;
+    text-decoration: none !important;
+    font-family: courier, arial !important;
+}
+
+.internal-link {
+    font-family: arial !important;
+}
+
+.external-link {
+    font-family: arial !important;
+}
+
+
+a.tag {
+    color: #616d6d !important;
+}
+
+/* link hover color */
+a:hover,
+.internal-link:hover {
+    color: var(--text-a-hover) !important;
+    text-decoration: none !important;
+}
+
+/* make external links italics to differentiate */
+a:not(.internal-link) {
+    font-style: italic;
+}
+
+
+/**********************/
+/* lists */
+/**********************/
+
+
+
+.markdown-preview-view ol {
+    /* color: var(--green-light) !important; */
+}
+
+.cm-s-obsidian span.cm-formatting-list {
+    color: #3fce4a !important;
+}
+
+/***************************************/
+/*             Search panel            */
+/***************************************/
+
+.search-result-file-matched-text {
+    color: var(--text-normal);
+    background-color: rgba(255, 121, 198, 0.5) !important;
+}
+
+/***************************************/
+/*                Tables               */
+/***************************************/
+th {
+    font-weight: 800 !important;
+}
+
+.markdown-preview-view th {
+    font-weight: 800;
+    background-color: var(--green) !important;
+}
+
+thead {
+    border-bottom: 4px solid var(--background-modifier-border);
+}
+
+.table {
+    background-color: var(--background-secondary-alt);
+    border: 1px solid var(--background-modifier-border);
+    padding: 4px;
+    line-height: normal;
+    display: block;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+/***************************************/
+/*                 Tags                */
+/***************************************/
+
+/* html tags in editor */
+.cm-tag {
+    color: var(--text-accent) !important;
+}
+
+/* embedded images */
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tag-pane-tag {
+    cursor: pointer;
+    user-select: none;
+    color: var(--green-light) !important;
+    padding: 2px 15px;
+    border-radius: 3px;
+    font-size: 14px !important;
+    position: relative;
+}
+
+.tag-pane-tag:hover {
+    background-color: var(--green);
+    color: var(--text-normal);
+}
+
+.tag-pane-tag-text {
+    color: var(--text-faint);
+}
+
+/*********************************/
+/*           Side dock           */
+/*********************************/
+
+body:not(.is-grabbing) .nav-file-title:hover,
+body:not(.is-grabbing) .nav-folder-title:hover {
+    background-color: var(--green);
+    color: var(--text-normal);
+}
+
+/* side dock text, like file names and backlink context */
+.side-dock-panels-container * {
+    font-size: 13px !important;
+}
+
+/* side dock titles at top */
+.side-dock-title {
+
+    font-size: 20px !important;
+    font-weight: 800 !important;
+}
+
+/* hover actions on side dock navigation */
+.side-dock-ribbon-tab:hover,
+.side-dock-ribbon-tab-inner:hover,
+.side-dock-ribbon-action:hover,
+.side-dock-ribbon-action.is-active:hover,
+.nav-action-button:hover,
+.side-dock-collapse-btn:hover {
+    color: var(--text-a);
+}
+
+/* condense line spacing on file explorer title list. also avoids character-level word breaks */
+.nav-file-title-content,
+.search-result-file-title,
+.search-result-file-match {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: normal !important;
+    word-break: keep-all;
+}
+
+/* clean up side bar empty state (e.g. unlinked mentions) */
+.search-empty-state {
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: normal;
+}
+
+/* font for everything outside of editor/preview panes */
+.app-container {
+    font-family: var(--font-family-preview);
+}
+
+.status-bar-item {
+    font-family: var(--font-family-preview);
+    font-size: 12px;
+}
+
+
+
+.cm-s-obsidian pre.HyperMD-codeblock {
+    font-family: Monaco;
+    line-height: 1.3;
+    color: #bd93f9;
+    /* color: #ff79c6; */
+    font-size: 0.85em;
+}
+
+.cm-s-obsidian span.cm-formatting-highlight,
+.cm-s-obsidian span.cm-highlight {
+    background-color: rgba(160, 251, 255, 0.12);
+    color: var(--text-normal);
+}
+
+
+
 
 /* internal embedded link rendering in preview */
 .markdown-embed-title {
@@ -428,20 +574,7 @@ img {
 /* stuff reggie added */
 /**********************/
 
-.markdown-preview-view blockquote {
-    background-color: rgba(49, 60, 70, 0.6);
-    /* border-radius: 0 4px 4px 0; */
-    border: 0px solid;
-    /* var(--background-modifier-border); */
-    /* border-left: solid #ffb86c; */
-    border-left-width: 2px;
 
-    padding: 10px;
-}
-
-.markdown-preview-view blockquote p {
-    margin: 0 10px;
-}
 
 .suggestion-item.is-selected {
     background-color: #197300;
