@@ -1,6 +1,6 @@
-# Obsidian-theme-Hulk-vs-Dracula
-A custom CSS theme for Obsidian inspired by The Incredible Hulk with colours stolen from Dracula.
-Dark theme only, because Dracula doesn't come out in the light.
+# Obsidian-theme-Incredible-Hulk
+A custom CSS theme for Obsidian inspired by The Incredible Hulk.
+Dark theme only.
 
 
 
@@ -10,4 +10,4 @@ Dark theme only, because Dracula doesn't come out in the light.
 2. Go to Settings -> Community themes to activate
 
 ## Licence
-This theme was modified from the work of other Obsidian members' themes, so feel free to modify to your own preference—and look out for my Custom CSS Guide to assist with changing colours! Coming Soon...
+This theme was modified from the work of other Obsidian members' themes, so feel free to modify to your own preference—and look out for my Custom CSS Guide in #css-themes on Discord to assist with changing colours!
