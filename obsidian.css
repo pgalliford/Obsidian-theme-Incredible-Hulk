@@ -26,7 +26,7 @@
     --text-accent: rgb(0, 186, 0);
     --interactive-accent-rgb: var(--green-light);
     --font-family-editor: courier, arial;
-    --font-family-preview: arial;
+    --font-family-preview: inter;
 
     /* Hulk color palette */
     --purple: #3c0a96;
@@ -39,8 +39,6 @@
     --brackets-color #0a5519;
     --pink: rgba(237, 160, 255, 0.73)
 }
-
-
 
 strong {
     color: var(--purple-pale);
@@ -111,7 +109,6 @@ mark {
     margin: 0 10px;
 }
 
-
 /***************************************/
 /*               Checkbox              */
 /***************************************/
@@ -132,17 +129,16 @@ mark {
     box-sizing: border-box;
     border: 1px solid var(--text-faint);
     position: relative;
-    width: 1.4em;
+    width: 1.5em;
     height: 1.5em;
     margin: 0;
     box-shadow: 0 0 0.4em var(--purple-pale);
 }
 
 .markdown-preview-view .task-list-item-checkbox {
-    top: 2px;
+    top: 4px;
+    right: 4px;
 }
-
-
 
 /***************************************/
 /*                 Code                */
@@ -214,7 +210,6 @@ code,
     color: chartreuse;
 }
 
-
 /**********************/
 /*  Headings - EDITOR */
 /**********************/
@@ -237,8 +232,6 @@ code,
 }
 
 /* Headings */
-
-
 
 .cm-header-1 {
     font-family: var(--font-family-editor);
@@ -312,18 +305,18 @@ code,
 /* headings */
 .markdown-preview-view h1 {
     font-family: var(--font-family-preview);
-    font-weight: 500;
-    font-size: 30px;
+    font-weight: 700 !important;
+    font-size: 32px;
     font-weight: normal;
-    color: var(--text-title-h1);
+    color: var(--text-normal);
 }
 
 .markdown-preview-view h2 {
     font-family: var(--font-family-preview);
-    font-weight: 500;
+    font-weight: 700 !important;
     font-size: 26px;
     font-weight: normal;
-    color: var(--text-title-h2);
+    color: var(--text-normal);
 }
 
 .markdown-preview-view h3 {
@@ -331,7 +324,7 @@ code,
     font-weight: 500;
     font-size: 22px;
     font-weight: bold;
-    color: var(--text-title-h3);
+    color: var(--text-normal);
 }
 
 .markdown-preview-view h4 {
@@ -339,7 +332,7 @@ code,
     font-weight: 500;
     font-size: 20px;
     font-weight: bold;
-    color: var(--text-title-h4);
+    color: var(--text-normal);
 }
 
 .markdown-preview-view h5 {
@@ -347,7 +340,7 @@ code,
     font-weight: 500;
     font-size: 18px;
     font-weight: bold;
-    color: var(--text-title-h5);
+    color: var(--text-normal);
 }
 
 .markdown-preview-view h6 {
@@ -355,7 +348,7 @@ code,
     font-weight: 500;
     font-size: 16px;
     font-weight: bold;
-    color: var(--text-title-h6);
+    color: var(--text-normal);
 }
 
 /*************************************************/
@@ -419,12 +412,9 @@ a:not(.internal-link) {
     font-style: italic;
 }
 
-
 /**********************/
 /* lists */
 /**********************/
-
-
 
 .markdown-preview-view ol {
     /* color: var(--green-light) !important; */
@@ -433,6 +423,10 @@ a:not(.internal-link) {
 .cm-s-obsidian span.cm-formatting-list {
     color: #3fce4a !important;
 }
+
+/* ul {
+    list-style-type: "–   ";
+} */
 
 /***************************************/
 /*             Search panel            */
@@ -446,6 +440,7 @@ a:not(.internal-link) {
 /***************************************/
 /*                Tables               */
 /***************************************/
+
 th {
     font-weight: 800 !important;
 }
@@ -519,8 +514,8 @@ body:not(.is-grabbing) .nav-folder-title:hover {
 }
 
 /* side dock text, like file names and backlink context */
-.side-dock-panels-container * {
-    font-size: 13px !important;
+.workspace-tabs * {
+    font-size: 14px !important;
 }
 
 /* side dock titles at top */
