@@ -3,14 +3,15 @@
     --background-primary-alt: #282A36;
     --background-secondary: #1A1B24;
     --background-secondary-alt: #282A36;
+    --background-modifier-cover: #7f5fd4;
     --text-normal: #bbc0c5;
     --text-faint: rgba(187, 192, 197, 0.4);
     --text-selection: #ceef83;
-    --text-title-h1: var(--purple-pale);
-    --text-title-h2: var(--purple-pale);
-    --text-title-h3: var(--purple-pale);
-    --text-title-h4: var(--purple-pale);
-    --text-title-h5: var(--purple-pale);
+    --text-title-h1: #bbc0c5;
+    --text-title-h2: #bbc0c5;
+    --text-title-h3: #bbc0c5;
+    --text-title-h4: #bbc0c5;
+    --text-title-h5: #bbc0c5;
     --text-title-h6: var(--purple-pale);
     --text-link: #3fce4a;
     --text-a: #3fce4a;
@@ -25,8 +26,10 @@
     /* --blockquote-border: rgba(77, 60, 166, .6); */
     --text-accent: rgb(0, 186, 0);
     --interactive-accent-rgb: var(--green-light);
-    --font-family-editor: courier, arial;
-    --font-family-preview: inter;
+    --font-family-editor: "victor mono",
+        inter;
+    --font-family-preview: "victor mono",
+        inter;
 
     /* Hulk color palette */
     --purple: #3c0a96;
@@ -40,14 +43,18 @@
     --pink: rgba(237, 160, 255, 0.73)
 }
 
+.cm-strong,
 strong {
     color: var(--purple-pale);
-    font-weight: 700;
+    font-family: "Victor Mono" !important;
+    font-weight: normal;
 }
 
+.cm-em,
 em {
-    color: var(--purple-pale);
-    font-style: italic;
+    /*color: var(--purple-pale);*/
+    font-family: "Victor Mono" !important;
+    font-style: oblique !important;
 }
 
 s {
@@ -94,7 +101,12 @@ mark {
 /* for editor */
 .cm-quote {
     color: var(--text-normal) !important;
+    /*font-style: italic;*/
 }
+
+/* .cm-s-obsidian span.cm-quote {
+    color: var(--purple-pale) !important;
+} */
 
 /* for preview */
 .markdown-preview-view blockquote {
@@ -103,8 +115,8 @@ mark {
     border-color: var(--purple-pale) !important;
     border-left-width: 1px !important;
     border-radius: 0 8px 8px 0;
-    /* font-family: merriwether, georgia, serif; */
     font-size: 1em;
+    /*font-style: italic;*/
     line-height: 1.5em;
     margin: 0 10px;
 }
@@ -113,31 +125,33 @@ mark {
 /*               Checkbox              */
 /***************************************/
 
-.markdown-preview-view .task-list-item-checkbox:checked::before {
-    content: '✓';
-    position: absolute;
-    color: #3fce4a;
-    font-size: 1em;
-    line-height: 1.25em;
-    width: 1.2em;
-    text-align: center;
-    text-shadow: 0 0 0.5em var(--green);
-}
-
 .markdown-preview-view .task-list-item-checkbox {
-    -webkit-appearance: none;
-    box-sizing: border-box;
-    border: 1px solid var(--text-faint);
+    width: 15px;
+    height: 15px;
     position: relative;
-    width: 1.5em;
-    height: 1.5em;
-    margin: 0;
-    box-shadow: 0 0 0.4em var(--purple-pale);
+    top: 6px;
+    margin-right: 6px;
 }
 
-.markdown-preview-view .task-list-item-checkbox {
-    top: 4px;
-    right: 4px;
+input[type=checkbox] {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    border: 1px solid var(--text-faint);
+    padding: 0;
+}
+
+input[type=checkbox]:focus {
+    outline: 0;
+}
+
+input[type=checkbox]:checked {
+    background-color: var(--text-accent-hover);
+    border: 1px solid var(--text-accent-hover);
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml; utf8, <svg width="12px" height="10px" viewBox="0 0 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-4.000000, -6.000000)" fill="%23ffffff"><path d="M8.1043257,14.0367999 L4.52468714,10.5420499 C4.32525014,10.3497722 4.32525014,10.0368095 4.52468714,9.8424863 L5.24777413,9.1439454 C5.44721114,8.95166768 5.77142411,8.95166768 5.97086112,9.1439454 L8.46638057,11.5903727 L14.0291389,6.1442083 C14.2285759,5.95193057 14.5527889,5.95193057 14.7522259,6.1442083 L15.4753129,6.84377194 C15.6747499,7.03604967 15.6747499,7.35003511 15.4753129,7.54129009 L8.82741268,14.0367999 C8.62797568,14.2290777 8.3037627,14.2290777 8.1043257,14.0367999"></path></g></g></svg>');
 }
 
 /***************************************/
@@ -182,12 +196,16 @@ code,
     bottom: 2px;
 }
 
+.CodeMirror-cursor {
+    border-left: 2px solid #0a8c28;
+}
+
 /***************************************/
 /*             Graph view              */
 /***************************************/
 
 .graph-view.color-fill {
-    color: #a7b0e3;
+    color: var(--purple-pale);
 }
 
 .graph-view.color-circle {
@@ -195,7 +213,7 @@ code,
 }
 
 .graph-view.color-line {
-    color: #392f55;
+    color: var(--green-light);
 }
 
 .graph-view.color-text {
@@ -210,9 +228,35 @@ code,
     color: chartreuse;
 }
 
-/**********************/
-/*  Headings - EDITOR */
-/**********************/
+/* New Graph v0.9.0 */
+
+.theme-dark .graph-view.color-fill-tag {
+    color: var(--green-pale);
+}
+
+.theme-dark .graph-view.color-fill-attachment {
+    color: #616d6d;
+}
+
+.graph-view.color-fill-unresolved {
+    color: #463653;
+}
+
+
+/*************************/
+/*        HASHTAGS       */
+/*************************/
+
+.cm-s-obsidian span.cm-hashtag {
+    color: #616d6d !important;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+
+/*************************/
+/*   Headings -  EDITOR  */
+/*************************/
 
 /* normal text outside of headings and code */
 .cm-s-obsidian {
@@ -304,27 +348,27 @@ code,
 
 /* headings */
 .markdown-preview-view h1 {
-    font-family: var(--font-family-preview);
+    font-family: inter;
     font-weight: 700 !important;
     font-size: 32px;
     font-weight: normal;
-    color: var(--text-normal);
+    color: var(--text-title-h1);
 }
 
 .markdown-preview-view h2 {
-    font-family: var(--font-family-preview);
+    font-family: inter;
     font-weight: 700 !important;
     font-size: 26px;
     font-weight: normal;
-    color: var(--text-normal);
+    color: var(--text-title-h2);
 }
 
 .markdown-preview-view h3 {
-    font-family: var(--font-family-preview);
+    font-family: inter;
     font-weight: 500;
     font-size: 22px;
     font-weight: bold;
-    color: var(--text-normal);
+    color: var(--text-title-h3);
 }
 
 .markdown-preview-view h4 {
@@ -332,7 +376,7 @@ code,
     font-weight: 500;
     font-size: 20px;
     font-weight: bold;
-    color: var(--text-normal);
+    color: var(--text-title-h4);
 }
 
 .markdown-preview-view h5 {
@@ -340,7 +384,7 @@ code,
     font-weight: 500;
     font-size: 18px;
     font-weight: bold;
-    color: var(--text-normal);
+    color: var(--text-title-h5);
 }
 
 .markdown-preview-view h6 {
@@ -348,7 +392,7 @@ code,
     font-weight: 500;
     font-size: 16px;
     font-weight: bold;
-    color: var(--text-normal);
+    color: var(--text-title-h6);
 }
 
 /*************************************************/
@@ -384,20 +428,21 @@ code,
 .cm-formatting-link {
     color: var(--text-a) !important;
     text-decoration: none !important;
-    font-family: courier, arial !important;
+    /*font-family: courier, arial !important;*/
 }
 
-.internal-link {
-    font-family: arial !important;
+.markdown-preview-view .internal-link {
+    text-decoration: none;
 }
 
-.external-link {
-    font-family: arial !important;
+a.external-link {
+    color: var(--text-muted);
 }
 
 
 a.tag {
     color: #616d6d !important;
+    font-style: italic;
 }
 
 /* link hover color */
@@ -408,9 +453,9 @@ a:hover,
 }
 
 /* make external links italics to differentiate */
-a:not(.internal-link) {
+/*a:not(.internal-link) {
     font-style: italic;
-}
+}*/
 
 /**********************/
 /* lists */
@@ -501,8 +546,6 @@ img {
     color: var(--text-muted);
 }
 
-
-
 /*********************************/
 /*           Side dock           */
 /*********************************/
@@ -563,8 +606,6 @@ body:not(.is-grabbing) .nav-folder-title:hover {
     font-size: 12px;
 }
 
-
-
 .cm-s-obsidian pre.HyperMD-codeblock {
     font-family: Monaco;
     line-height: 1.3;
@@ -578,9 +619,6 @@ body:not(.is-grabbing) .nav-folder-title:hover {
     background-color: rgba(160, 251, 255, 0.12);
     color: var(--text-normal);
 }
-
-
-
 
 /* internal embedded link rendering in preview */
 .markdown-embed-title {
@@ -605,12 +643,31 @@ body:not(.is-grabbing) .nav-folder-title:hover {
     width: 0px !important;
 }
 
-/**********************/
-/* stuff reggie added */
-/**********************/
-
-
-
 .suggestion-item.is-selected {
     background-color: #197300;
+}
+
+/****************************************/
+/*    add a rule line before ul list    */
+/****************************************/
+
+ul ul {
+    position: relative;
+}
+
+ul ul::before {
+    content: '';
+    border-left: 1px solid #393067;
+    position: absolute;
+}
+
+ul ul::before {
+    left: -1em;
+    top: 0;
+    bottom: 0;
+}
+
+/* rule line when there are checkboxes*/
+ul .task-list-item ul::before {
+    left: 0.15em !important
 }
