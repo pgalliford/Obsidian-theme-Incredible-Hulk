@@ -44,14 +44,11 @@
 .cm-strong,
 strong {
     color: var(--purple-pale);
-    font-family: "Victor Mono" !important;
-    font-weight: normal;
 }
 
 .cm-em,
 em {
     /*color: var(--purple-pale);*/
-    font-family: "Victor Mono" !important;
     font-style: oblique !important;
 }
 
